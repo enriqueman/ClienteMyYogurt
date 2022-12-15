@@ -25,7 +25,7 @@ class YogurtAdapter (val context:Context, val list : ArrayList<AddYogurtModel>)
 
     override fun onBindViewHolder(holder: YogurtViewHolder, position: Int) {
         val data = list[position]
-        Glide.with(context).load(data.yogurtImages[0]).into(holder.binding.imageView3)
+        Glide.with(context).load(data.CoverImg).into(holder.binding.imageView3)
         holder.binding.textView4.text = data.yogurtName
         holder.binding.textView5.text = data.yogurtDescripcion
         holder.binding.textView6.text = data.yogurtFruta
