@@ -1,12 +1,14 @@
 package edu.unicauca.aplimovil.clientemyyogurt.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
+import edu.unicauca.aplimovil.clientemyyogurt.activity.YogurtDetailsActivity
 import edu.unicauca.aplimovil.clientemyyogurt.databinding.LayoutProductItemBinding
 import edu.unicauca.aplimovil.clientemyyogurt.model.AddYogurtModel
 
@@ -30,7 +32,11 @@ class YogurtAdapter (val context:Context, val list : ArrayList<AddYogurtModel>)
 
         holder.binding.button.text = data.yogurtPrecio
 
-
+        holder.itemView.setOnClickListener(){
+            val intent = Intent(context, YogurtDetailsActivity::class.java)
+            intent.putExtra("id", list[position].yogurtId)
+            context.startActivity(intent)
+        }
 
     }
 
