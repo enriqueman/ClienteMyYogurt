@@ -1,13 +1,19 @@
-plugins {
+  plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id("androidx.navigation.safeargs.kotlin")
+    id 'kotlin-android'
 
-//    id 'kotlin.kapt'
+    //id 'kotlin.kapt'
 }
+//aply plugin: 'com.google.devtools.ksp'
+  apply plugin: 'kotlin-android'
+//  apply plugin: 'com.android.feature'
+  apply plugin: 'kotlin-kapt'
 
-android {
+
+  android {
     namespace 'edu.unicauca.aplimovil.clientemyyogurt'
     compileSdk 32
 
@@ -93,10 +99,16 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
-//    kapt("androidx.room:room-compiler:$room_version")
+
+
+
+    // To use Kotlin annotation processing tool (kapt)
+
+    kapt("androidx.room:room-compiler:$room_version")
+
     implementation("androidx.room:room-ktx:$room_version")
 
     //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
 
 }
