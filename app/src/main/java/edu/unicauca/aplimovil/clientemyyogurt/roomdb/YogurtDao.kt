@@ -1,5 +1,6 @@
 package edu.unicauca.aplimovil.clientemyyogurt.roomdb
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -10,11 +11,11 @@ import androidx.room.Query
 
 interface YogurtDao{
     @Insert
-    fun insertYogurt(product : YogurtModel)
+    suspend fun insertYogurt(product : YogurtModel)
     @Delete
-    fun deleteYogurt(product: YogurtModel)
+    suspend fun deleteYogurt(product: YogurtModel)
     @Query("SELECT * FROM yogures")
-    fun getAllYogurt() : List<YogurtModel>
+    fun getAllYogurt() : LiveData<List<YogurtModel>>
     @Query("SELECT * FROM yogures WHERE yogurtId =:id")
     fun isExit(id: String) : YogurtModel
 
