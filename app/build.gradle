@@ -5,7 +5,7 @@
     id("androidx.navigation.safeargs.kotlin")
     id 'kotlin-android'
 
-    //id 'kotlin.kapt'
+    id 'kotlin-kapt'
 }
 //aply plugin: 'com.google.devtools.ksp'
   apply plugin: 'kotlin-android'
