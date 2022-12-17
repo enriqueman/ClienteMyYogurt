@@ -5,12 +5,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName= "yogures")
+@Entity(tableName= " ")
 
 data class YogurtModel(
     @PrimaryKey
     @NonNull
-    val yogurtId: String? = "",
+    val yogurtId: String,
     @ColumnInfo(name="yogurtName")
     val yogurtName: String? = "",
     @ColumnInfo(name="yogurtImages")
