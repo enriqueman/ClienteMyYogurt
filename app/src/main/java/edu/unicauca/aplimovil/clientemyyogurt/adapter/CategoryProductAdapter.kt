@@ -25,7 +25,7 @@ class CategoryProductAdapter (val context: Context, val list : ArrayList<AddYogu
     }
 
     override fun onBindViewHolder(holder: CategoryProductViewHolder, position: Int) {
-        Glide.with(context).load(list[position].CoverImg).into(holder.binding.imageView2)
+        Glide.with(context).load(list[position].yogurtImages[0]).into(holder.binding.imageView2)
 
         holder.binding.textView2.text = list[position].yogurtName
         holder.binding.textView3.text = list[position].yogurtDescripcion
