@@ -47,7 +47,7 @@ class YogurtDetailsActivity : AppCompatActivity() {
                     slideList.add(SlideModel(data, ScaleTypes.CENTER_CROP))
                 }
 
-                cartAction(yogId, name, it.getString("CoverImg"),yogurtPrecio  )
+                cartAction(yogId, name, list[0],yogurtPrecio  )
 
                 binding.imageSlider.setImageList(slideList)
 
