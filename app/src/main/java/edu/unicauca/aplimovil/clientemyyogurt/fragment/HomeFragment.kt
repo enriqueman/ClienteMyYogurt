@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -24,7 +26,15 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentHomeBinding.inflate(layoutInflater)
+
+
+
+        val preferences= requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
+        if(preferences.getBoolean("isCart",false))
+            findNavController().navigate(R.id.action_homeFragment_to_cartFragment)
+
         getCategories()
         getSliderImages()
 
