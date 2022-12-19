@@ -10,7 +10,7 @@ import androidx.room.RoomDatabase
 abstract class AppDatabase: RoomDatabase() {
     companion object{
         private var database : AppDatabase? = null
-        private val DATABASE_NAME = "AdminMyyogurt"
+        private val DATABASE_NAME = "Myyogurt"
 
         @Synchronized
         fun getInstance(context: Context): AppDatabase{
