@@ -5,7 +5,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName= " ")
+@Entity(tableName= "yogures")
 
 data class YogurtModel(
     @PrimaryKey

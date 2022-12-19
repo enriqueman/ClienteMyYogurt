@@ -47,7 +47,7 @@ class YogurtDetailsActivity : AppCompatActivity() {
                     slideList.add(SlideModel(data, ScaleTypes.CENTER_CROP))
                 }
 
-                cartAction(yogId, name, yogurtPrecio,  it.getString("CoverImg") )
+                cartAction(yogId, name, it.getString("CoverImg"),yogurtPrecio  )
 
                 binding.imageSlider.setImageList(slideList)
 
@@ -57,21 +57,21 @@ class YogurtDetailsActivity : AppCompatActivity() {
 
     }
 
-    private fun cartAction(proId: String, name: String?, yogurtPrecio: String?, coverImg: String?) {
+    private fun cartAction(yogId: String, name: String?, yogurtPrecio: String?, coverImg: String?) {
         val yogurtDao = AppDatabase.getInstance(this).yogurtDao()
-        if(yogurtDao.isExit(proId)!=null){
+        if(yogurtDao.isExit(yogId)!=null){
             binding.textView11.text = "Go to cart"
         }else{
             binding.textView11.text = "Add to cart"
         }
 
         binding.textView11.setOnClickListener {
-            if(yogurtDao.isExit(proId)!=null){
+            if(yogurtDao.isExit(yogId)!=null){
                 openCart()
 
             }else{
 
-                addToCart(yogurtDao,proId,name,yogurtPrecio,coverImg)
+                addToCart(yogurtDao,yogId,name,yogurtPrecio,coverImg)
             }
         }
 
@@ -79,12 +79,12 @@ class YogurtDetailsActivity : AppCompatActivity() {
 
     private fun addToCart(
     yogurtDao: YogurtDao,
-    proId: String,
+    yogId: String,
     name: String?,
     yogurtPrecio: String?,
     coverImg: String?
     ) {
-        val data = YogurtModel(proId,name,yogurtPrecio,coverImg)
+        val data = YogurtModel(yogId,name,yogurtPrecio,coverImg)
         lifecycleScope.launch(Dispatchers.IO){
             yogurtDao.insertYogurt(data)
             binding.textView11.text = "Go to cart"
