@@ -34,6 +34,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        navController.addOnDestinationChangedListener(object : NavController.OnDestinationChangedListener{
+            override fun onDestinationChanged(
+                controller: NavController,
+                destination: NavDestination,
+                arguments: Bundle?
+            ) {
+                title = when(destination.id){
+                    R.id.cartFragment-> "Carrito"
+                    R.id.moreFragment-> "Sobre nosotros"
+                    else -> "Inicio"
+                }
+            }
+
+        } )
+
 
     }
 
@@ -43,22 +58,17 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
     }
+
+
+
+
+
+
+
+
 }
 
 
 
-       // navController.addOnDestinationChangedListener(object : NavController.OnDestinationChangedListener{
-       //     override fun onDestinationChanged(
-       //         controller: NavController,
-       //         destination: NavDestination,
-       //         arguments: Bundle?
-        //    ) {
-        //        title = when(destination.id){
-        //            R.id.cartFragment-> "Carrito"
-        //            R.id.moreFragment-> "Arma tu yogurt"
-        //            else -> "Inicio"
-        //        }
-        //    }
 
-       // } )
 
