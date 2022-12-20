@@ -93,7 +93,7 @@
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="deibymelo@unicauca.edu.co"
+            android:text="deybyzm@unicauca.edu.co"
             app:layout_constraintStart_toStartOf="@+id/textView16"
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
