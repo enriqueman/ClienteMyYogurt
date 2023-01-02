@@ -42,8 +42,8 @@
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="91dp"
-            android:layout_height="23dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
 
             android:text="Costo total:"
@@ -57,11 +57,11 @@
 
         <TextView
             android:id="@+id/textView14"
-            android:layout_width="91dp"
-            android:layout_height="23dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
 
-            android:text="Costo 20000"
+            android:text="20000"
             android:textColor="@color/black"
             android:textSize="14sp"
 
