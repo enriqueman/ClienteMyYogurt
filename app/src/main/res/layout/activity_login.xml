@@ -31,8 +31,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Usuario" 
-            android:id="@+id/usuario"/>
+            android:hint="Numero"
+            android:id="@+id/userNumber"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
