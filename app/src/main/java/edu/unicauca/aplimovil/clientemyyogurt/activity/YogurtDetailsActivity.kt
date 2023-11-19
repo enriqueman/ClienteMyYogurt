@@ -31,15 +31,19 @@ class YogurtDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    private fun getYogurtDetails(yogId: String?) {
-        Firebase.firestore.collection("yogures")
-            .document(yogId!!).get().addOnSuccessListener {
+    private fun getYogurtDetails(newsId: String?) {
+        Firebase.firestore.collection("noticias")
+            .document(newsId!!).get().addOnSuccessListener {
                 val list = it.get("yogurtImages") as ArrayList<String>
-                val name = it.getString("yogurtName")
-                val yogurtPrecio = it.getString(("yogurtPrecio"))
-                binding.textView8.text = it.getString("yogurtName")
-                binding.textView9.text = it.getString("yogurtPrecio")
-                binding.textView10.text = it.getString("yogurtDescripcion")
+                val name = it.getString("newsTitle")
+                val yogurtPrecio = it.getString(("newsDate"))
+                binding.textView8Title.text = it.getString("newsTitle")
+                binding.textViewCuerpo.text = it.getString("newsBody")
+                binding.textViewFecha.text = it.getString("newsDate")
+                binding.textViewfuente.text = it.getString("newsAutor")
+                binding.textViewEstado.text = it.getString("newsVera")
+
+
 
                 val slideList = ArrayList<SlideModel>()
 
@@ -47,7 +51,7 @@ class YogurtDetailsActivity : AppCompatActivity() {
                     slideList.add(SlideModel(data, ScaleTypes.CENTER_CROP))
                 }
 
-                cartAction(yogId, name, list[0],yogurtPrecio  )
+                cartAction(newsId, name, list[0],yogurtPrecio  )
 
                 binding.imageSlider.setImageList(slideList)
 
@@ -60,12 +64,12 @@ class YogurtDetailsActivity : AppCompatActivity() {
     private fun cartAction(yogId: String, name: String?, yogurtPrecio: String?, coverImg: String?) {
         val yogurtDao = AppDatabase.getInstance(this).yogurtDao()
         if(yogurtDao.isExit(yogId)!=null){
-            binding.textView11.text = "Go to cart"
+            binding.textViewInicio.text = "Inicio"
         }else{
-            binding.textView11.text = "Add to cart"
+            binding.textViewInicio.text = "Inicio"
         }
 
-        binding.textView11.setOnClickListener {
+        binding.textViewInicio.setOnClickListener {
             if(yogurtDao.isExit(yogId)!=null){
                 openCart()
 
@@ -87,7 +91,7 @@ class YogurtDetailsActivity : AppCompatActivity() {
         val data = YogurtModel(yogId,name,yogurtPrecio,coverImg)
         lifecycleScope.launch(Dispatchers.IO){
             yogurtDao.insertYogurt(data)
-            binding.textView11.text = "Go to cart"
+            binding.textViewInicio.text = "Go to cart"
 
         }
 

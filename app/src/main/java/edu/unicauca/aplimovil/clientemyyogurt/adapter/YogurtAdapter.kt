@@ -26,15 +26,15 @@ class YogurtAdapter (val context:Context, val list : ArrayList<AddYogurtModel>)
     override fun onBindViewHolder(holder: YogurtViewHolder, position: Int) {
         val data = list[position]
         Glide.with(context).load(data.yogurtImages[0]).into(holder.binding.imageView3)
-        holder.binding.textView4.text = data.yogurtName
-        holder.binding.textView5.text = data.yogurtDescripcion
-        holder.binding.textView6.text = data.yogurtFruta
+        holder.binding.textView4.text = data.newsTitle
+        holder.binding.textView5.text = data.newsBody
+        holder.binding.textView6.text = data.newsVera
 
-        holder.binding.button.text = data.yogurtPrecio
+        //holder.binding.button.text = data.yogurtPrecio
 
         holder.itemView.setOnClickListener(){
             val intent = Intent(context, YogurtDetailsActivity::class.java)
-            intent.putExtra("id", list[position].yogurtId)
+            intent.putExtra("id", list[position].newsId)
             context.startActivity(intent)
         }
 

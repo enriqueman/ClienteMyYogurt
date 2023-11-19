@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 arguments: Bundle?
             ) {
                 title = when(destination.id){
-                    R.id.cartFragment-> "Carrito"
+                   // R.id.cartFragment-> "Carrito"
                     R.id.moreFragment-> "Sobre nosotros"
                     else -> "Inicio"
                 }

@@ -26,50 +26,80 @@
         </com.denzcoskun.imageslider.ImageSlider>
     </com.google.android.material.card.MaterialCardView>
 
+
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
+        android:id="@+id/textView_estado"
+        android:layout_width="161dp"
+        android:layout_height="58dp"
+        android:text="Estado"
         android:textColor="@color/black"
+
         android:textSize="16sp"
         android:textStyle="bold"
-
-        app:layout_constraintEnd_toStartOf="@+id/textView9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/textView_cuerpo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8_title" />
 
     <TextView
-        android:id="@+id/textView10"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/textView8_title"
+        android:layout_width="377dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+
+        android:textStyle="bold"
+        app:barrierMargin="@dimen/cardview_default_elevation"
+        app:layout_constraintBottom_toTopOf="@+id/textView_cuerpo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+        app:layout_constraintVertical_bias="0.108" />
+
+    <TextView
+        android:id="@+id/textView_fecha"
+        android:layout_width="192dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Fecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toEndOf="@+id/textView_estado"
+        app:layout_constraintTop_toBottomOf="@+id/textView8_title" />
+
+    <TextView
+        android:id="@+id/textViewfuente"
+        android:layout_width="193dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="16dp"
+        android:text="Fuente"
+        app:layout_constraintBottom_toTopOf="@+id/textView_cuerpo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_fecha" />
+
+    <TextView
+        android:id="@+id/textView_cuerpo"
+        android:layout_width="376dp"
+        android:layout_height="194dp"
         android:layout_marginHorizontal="12dp"
-        android:layout_marginTop="18dp"
 
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        android:layout_marginBottom="64dp"
+        android:text="Cuerpo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView_inicio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Add to Cart"
+        android:text="Inicio"
         android:background="@color/colorPrimary"
         android:padding="12dp"
         android:textSize="18sp"

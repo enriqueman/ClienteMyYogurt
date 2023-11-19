@@ -27,12 +27,12 @@ class CategoryProductAdapter (val context: Context, val list : ArrayList<AddYogu
     override fun onBindViewHolder(holder: CategoryProductViewHolder, position: Int) {
         Glide.with(context).load(list[position].yogurtImages[0]).into(holder.binding.imageView2)
 
-        holder.binding.textView2.text = list[position].yogurtName
-        holder.binding.textView3.text = list[position].yogurtDescripcion
+        holder.binding.textView2.text = list[position].newsTitle
+        holder.binding.textView3.text = list[position].newsBody
 
         holder.itemView.setOnClickListener(){
             val intent = Intent(context, YogurtDetailsActivity::class.java)
-            intent.putExtra("id", list[position].yogurtId)
+            intent.putExtra("id", list[position].newsId)
             context.startActivity(intent)
         }
 

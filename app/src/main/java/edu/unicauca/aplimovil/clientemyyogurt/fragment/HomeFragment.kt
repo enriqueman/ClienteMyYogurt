@@ -31,10 +31,11 @@ class HomeFragment : Fragment() {
 
 
 
-        val preferences= requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
-        if(preferences.getBoolean("isCart",false))
-            findNavController().navigate(R.id.action_homeFragment_to_cartFragment)
+    //    val preferences= requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
+   //     if(preferences.getBoolean("isCart",false))
+   //         findNavController().navigate(R.id.action_homeFragment_to_cartFragment)
 
+        println("pppppppppppppppppppppppppppppppppppppppppppppppppp")
         getCategories()
         getSliderImages()
 
@@ -44,6 +45,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun getSliderImages() {
+        println(1111)
         Firebase.firestore.collection("slider").document("item")
             .get().addOnSuccessListener {
                 Glide.with(requireContext()).load(it.get("img")).into(binding.sliderImage)
@@ -51,13 +53,28 @@ class HomeFragment : Fragment() {
     }
 
     private fun getProducts() {
+        println(122222222222222)
         val list= ArrayList<AddYogurtModel>()
-        Firebase.firestore.collection("yogures")
+        Firebase.firestore.collection("noticias")
             .get().addOnSuccessListener {
                 list.clear()
+
                 for (doc in it.documents){
-                    val data =doc.toObject(AddYogurtModel::class.java)
+                    val data =AddYogurtModel(
+                        newsId = doc.id,
+                        newsTitle = doc["newsTitle"] as String?,
+                        newsBody = doc["newsBody"]as String?,
+                        CoverImg = doc["CoverImg"]as String?,
+                        yogurtCategoria = doc["yogurtCategoria"]as String?,
+                        newsVera = doc["newsVera"]as String?,
+                        newsDate = doc["newsDate"]as String?,
+                        newslink = doc["newslink"]as String?,
+                        newsAutor = doc["newsAutor"]as String?,
+                        yogurtImages = doc["yogurtImages"] as ArrayList<String>
+                    )
+
                     list.add(data!!)
+                    println("documento$doc")
                 }
                 binding.productRecycler.adapter= YogurtAdapter(requireContext(),list)
             }

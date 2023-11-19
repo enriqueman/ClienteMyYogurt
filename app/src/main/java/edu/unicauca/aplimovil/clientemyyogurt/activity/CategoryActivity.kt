@@ -20,11 +20,22 @@ class CategoryActivity : AppCompatActivity() {
 
     private fun getProducts(category: String?) {
         val list= ArrayList<AddYogurtModel>()
-        Firebase.firestore.collection("yogures").whereEqualTo("yogurtCategoria", category)
+        Firebase.firestore.collection("noticias").whereEqualTo("yogurtCategoria", category)
             .get().addOnSuccessListener {
                 list.clear()
                 for (doc in it.documents){
-                    val data =doc.toObject(AddYogurtModel::class.java)
+                    val data =AddYogurtModel(
+                        newsId = doc.id,
+                        newsTitle = doc["newsTitle"] as String?,
+                        newsBody = doc["newsBody"]as String?,
+                        CoverImg = doc["CoverImg"]as String?,
+                        yogurtCategoria = doc["yogurtCategoria"]as String?,
+                        newsVera = doc["newsVera"]as String?,
+                        newsDate = doc["newsDate"]as String?,
+                        newslink = doc["newslink"]as String?,
+                        newsAutor = doc["newsAutor"]as String?,
+                        yogurtImages = doc["yogurtImages"] as ArrayList<String>
+                    )
                     list.add(data!!)
                 }
                 val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)

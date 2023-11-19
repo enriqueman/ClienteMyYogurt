@@ -9,19 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="edu.unicauca.aplimovil.clientemyyogurt.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_cartFragment"
-            app:destination="@id/cartFragment" />
-        <action
-            android:id="@+id/action_homeFragment_self"
-            app:destination="@id/homeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/cartFragment"
-        android:name="edu.unicauca.aplimovil.clientemyyogurt.fragment.CartFragment"
-        android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/moreFragment"
         android:name="edu.unicauca.aplimovil.clientemyyogurt.fragment.MoreFragment"
